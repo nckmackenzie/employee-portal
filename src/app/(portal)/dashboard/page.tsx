@@ -1,5 +1,13 @@
-import React from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Dashboard',
+};
 
 export default function DashboardPage() {
-  return <div>DashboardPage</div>;
+  return (
+    <div>
+      <p>DashboardPage</p>
+    </div>
+  );
 }
