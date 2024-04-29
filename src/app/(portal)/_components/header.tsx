@@ -1,12 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import clsx from 'clsx';
-import { Bell } from 'lucide-react';
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import clsx from 'clsx';
+import { Bell, Menu } from 'lucide-react';
 
-const NAV_LINKS = [
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
+import MenuButton from '../dashboard/_components/menu-button';
+
+export const NAV_LINKS = [
   {
     href: '/dashboard',
     name: 'Dashboard',
@@ -33,12 +37,13 @@ export default function Header() {
     <header className="bg-neutral/30 md:shadow-md h-16 flex items-center">
       <div className="container">
         <div className="flex items-center gap-6">
+          <MenuButton pathName={pathName} />
           <img
             src="/logos/favicon-black.svg"
             alt="Panesar Logo"
-            className="h-8"
+            className="hidden md:block h-8"
           />
-          <nav className="flex items-center gap-8 text-muted-foreground">
+          <nav className="hidden md:flex items-center gap-8 text-muted-foreground">
             {NAV_LINKS.map(link => (
               <Link
                 className={clsx('transition-colors hover:text-primary', {
